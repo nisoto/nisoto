@@ -5,7 +5,7 @@ tags: C/C++
 eye_catch:
 ---
 
-En este sexto capítulo del curso de C (si no has visto el capítulo anterior, has clic [aquí](https://nisoto.github.io/2017/06/29/subprogramas-c/)) verás una de las estructuras de datos más utilizada en el mundo de la programación: **arrays** (arreglos en español). Un array nos permite almacenar información de un mismo tipo (**¡ojo con eso!**) en casillas y, además, pueden ser de infinitas dimensiones. En este capítulo sólo nos centraremos en arrays unidimensionales (vectores) y bidimensionales (matrices).
+En este sexto capítulo del curso de C (si no has visto el capítulo anterior, has clic [aquí](https://nisoto.github.io/2017/06/29/subprogramas-c/)) verás una de las estructuras de datos más utilizada en el mundo de la programación: los **arrays** (arreglos en español). Un array nos permite almacenar información de un mismo tipo (**¡ojo con eso!**) en casillas y, además, pueden ser de infinitas dimensiones. En este capítulo sólo nos centraremos en arrays unidimensionales (vectores) y bidimensionales (matrices).
 
 <!--more-->
 
