@@ -105,31 +105,34 @@ Para visualizar todas las carpetas y ficheros que contiene.
 Lo único que nos queda por hacer es modificar el fichero de configuración de la base de datos para que la conexión con PostgreSQL sea exitosa. Para ello, nos dirigimos a la carpeta config y luego abriremos el fichero llamado `database.yml`, borramos todo su contenido y pegamos lo siguiente:
 
 ```
+default: &default
+  adapter: postgresql
+  user: username
+  password: password
+  pool: 5
+  timeout: 5000
+  host: localhost
+
 development:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: myapp_development
-  pool: 5
-  username: username
-  password: password
-
+  
 test:
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: myapp_test
-  pool: 5
-  username: username
-  password: password
+
+production:
+  <<: *default
+  database: myapp_production
 ```
 
-El código anterior habla por sí solo. Una vez hecho esto, nos dirigimos nuevamente a la carpeta de nuestro proyecto (en la terminal) y tecleamos lo siguiente (en orden):
+El código anterior habla por sí solo. Una vez hecho esto, nos dirigimos nuevamente a la carpeta de nuestro proyecto (en la terminal) y tecleamos lo siguiente:
 
 ```
-rake db:setup
-rake db:migrate
+rails db:migrate
 ```
 
-El primer comando creará las bases de datos `myapp_development` y `myapp_test` y el segundo comando las enlazará con PostgreSQL.
+Este comando creará las bases de datos `myapp_development`, `myapp_test` y `myapp_production` y las enlazará con PostgreSQL.
 
 Para comprobar que la conexión fue exitosa, crearemos un modelo y luego lo migraremos. Imaginemos por un momento que queremos crear un blog profesional en Rails; un blog posee artículos, y dichos artículos pueden tener uno o muchos comentarios. Dentro de la carpeta del proyecto ingresamos lo siguiente:
 
@@ -142,7 +145,7 @@ En el comando anterior le estamos indicando al framework que queremos crear un m
 Por último, migraremos nuestro modelo:
 
 ```
-rake db:migrate
+rails db:migrate
 ```
 
 El comando migrate enlazará nuestro modelo con PostgreSQL y creará una tabla llamada **articles** (el modelo debe ir en singular y la tabla en la base de datos en plural), el cual contendrá 5 campos, ¿Qué diablos pasó?, ¡Pero si sólo le agregamos 2 campos! La cuestión es simple: al migrar el modelo, automáticamente se crean 3 campos, un `id` (el cual corresponde a la llave primera, es autoincrementable y además de tipo `int`) y dos campos de tipo `date` (fecha) llamados `created_at` (fecha de creación) y `updated_at` (fecha de modificación).
