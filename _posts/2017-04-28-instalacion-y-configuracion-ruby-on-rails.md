@@ -129,7 +129,7 @@ production:
 El código anterior habla por sí solo. Una vez hecho esto, nos dirigimos nuevamente a la carpeta de nuestro proyecto (en la terminal) y tecleamos lo siguiente:
 
 ```
-rails db:migrate
+rails db:create
 ```
 
 Este comando creará las bases de datos `myapp_development`, `myapp_test` y `myapp_production` y las enlazará con PostgreSQL.
