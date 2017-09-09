@@ -58,7 +58,7 @@ El número `1` significa que acabamos de acceder al segundo elemento de la lista
 ## Manejo de Arrays
 -------------------
 
-Existen varios métodos que nos simplifican bastante el trabajo con arrays, algunos se especifican a continuación:
+Existen varios métodos que nos simplifican bastante el trabajo con arrays, algunos de estos se especifican a continuación:
 
 ``` ruby
 # Imprimir el primer elemento de un array
