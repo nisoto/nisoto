@@ -9,70 +9,90 @@ En este sexto capítulo del curso de Ruby (si no has visto el capítulo anterior
 
 <!--more-->
 
-## Array
---------
+## ¿Qué es un Array?
+--------------------
 
-Un Array es un contenedor donde podemos almacenar datos (o elementos) y, a diferencia de muchos otros lenguajes de programación, éstos pueden ser de distinto tipo. Cabe destacar que en Ruby (y en Python) a un array se le conoce también como **list** (lista en español).
+Un array es un contenedor donde podemos almacenar datos (o elementos) y, a diferencia de muchos otros lenguajes de programación, éstos pueden ser de distinto tipo. Cabe destacar que en Ruby (y en Python) a un array se le conoce también como **list** (lista en español).
 
+### Declaración de un Array
 
+Existen 2 formas de crear (declarar) un array, la primera es utilizando corchetes (`[]`):
 
-
-
-
-
-
-
-
-
-Como crear un array??
-
+``` ruby
 first_array = []
+```
 
-Existe otra manera!
+Mientras que la segunda se realiza mediante el comando `new`:
 
+``` ruby
 second_array = Array.new
+```
 
-Si ahora los imprimimos:
+### Inicialización de un Array
 
-puts first_array.to_s
-puts second_array.to_s
+Para almacenar elementos a nuestro array, basta con agregarlos dentro de los corchetes y separados entre comas, como se detalla a continuación:
 
-[]
-[]
-
-Ahora almacenaremos información en un array:
-
+``` ruby
 first_array = ["Ruby", "Python", "JavaScript"]
+```
 
-Cómo acceder? -> accediendo a su índice! ejemplo
+### Imprimiendo un Array
 
-puts first_array[0]
+Si ahora queremos imprimir los elementos de un array, debemos utilizar el comando `puts`:
 
-Existen varios medodos:
+``` ruby
+puts first_array.to_s
+puts second_array.to_S
+```
 
-puts first_array.first -> imprime el primer elemento
+Es importante utilizar el método `to_s` para que no haya conflicto (este método convierte toda la lista a string para imprimirla sin problemas).
 
-puts first_array.take(N) -> mostrará los N primeros elementos de la lista
+Acceder a los elementos de un array es bastante simple, sólo basta con especificar el índice del elemento que queremos manipular, por ejemplo:
 
-puts first_array.drop(N) -> mostrará desde el término N+1 al último término de la lista
+``` ruby
+puts first_array[1]
+```
 
-puts first_array.length -> largo del array!
+El número `1` significa que acabamos de acceder al segundo elemento de la lista (recuerda que en la mayoría de los lenguajes de programación, los arreglos comienzan con el índice `0`).
 
-puts first_array.empty? -> retorna true si está vació y false si no lo está
+## Manejo de Arrays
+-------------------
 
-second_array.push("Rails") -> agrega una casilla (elemento) al final de la lista
+Existen varios métodos que nos simplifican bastante el trabajo con arrays, algunos se especifican a continuación:
 
-Lo bueno de esto es que podemos almacenar información de cualquier tipo!!
+``` ruby
+# Imprimir el primer elemento de un array
+puts first_array.first
 
-Existe otro método para agregar elementos!!
+# Imprimir el último elemento de un array
+puts first_array.last
 
-second_array.insert(INDICE,ELEMENTO)
+# Imprimir los N primeros elementos del array
+puts first_array.take(N)
 
-second_array.insert(1, "Laravel") --> el elemento que esté en la posición 1 será desplazado a la posición siguiente (2)
+# Imprimir desde el elemento N+1 hasta el último elemento del array
+puts first_array.drop(N)
 
-second_array.pop -> elimina el último elemento de la lista!
+# Determinar el largo de un array
+puts first_array.length
+puts first_array.count
+puts first_array.size
 
-second_array.shift -> elimina el primer elemento de la lista!!
+# Determina si un array está vacío o no (retorna true o false dependiendo del caso)
+puts first_array.empty?
 
-second_array.delete_at(INDICE) -> elimina el elemento en la posición I
-second_array.delete_at(2)
+# Agrega la cadena "Rails" al final del array (pueden ser elementos de cualquier tipo)
+second_array.push("Rails")
+
+# Agrega la cadena "Laravel" en el índice 1 (el elemento que estaba en dicha posición será desplazado a la posición siguiente)
+second_array.insert(1,"Laravel")
+
+# Eliminar el último elemento del array
+second_array.pop
+
+# Eliminar el primer elemento del array
+second_array.shift
+
+# Elimina el elemento que se encuentra en la posición i
+second_array.delete_at(i)
+```
